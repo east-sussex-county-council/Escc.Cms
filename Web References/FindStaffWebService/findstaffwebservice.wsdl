@@ -1,0 +1,1284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Find Staff Web Service</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/">
+      <s:element name="StaffRole">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="roleId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StaffRoleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StaffRoleResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Roles">
+        <s:complexType />
+      </s:element>
+      <s:element name="RolesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RolesResult" type="tns:ArrayOfJobRole" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfJobRole">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="JobRole" nillable="true" type="tns:JobRole" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="JobRole">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoleName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TeamBuildings">
+        <s:complexType />
+      </s:element>
+      <s:element name="TeamBuildingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TeamBuildingsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StaffFloorWardens">
+        <s:complexType />
+      </s:element>
+      <s:element name="StaffFloorWardensResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StaffFloorWardensResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StaffFirstAid">
+        <s:complexType />
+      </s:element>
+      <s:element name="StaffFirstAidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StaffFirstAidResult" type="tns:ArrayOfEmployee" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEmployee">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Employee" nillable="true" type="tns:Employee" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Employee">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Person">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="UserAccountName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReferencingInitials" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="FirstAider" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="DefibrillatorTrained" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="FloorWarden" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="PhotoNotPermitted" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="PhotoUrl" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Jobs" type="tns:ArrayOfJob" />
+              <s:element minOccurs="0" maxOccurs="1" name="LoginLocation" type="tns:WorkLocation" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Person">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="tns:PersonName" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddresses" type="tns:ArrayOfContactEmail" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelephoneNumbers" type="tns:ArrayOfUKContactNumber" />
+          <s:element minOccurs="0" maxOccurs="1" name="FaxNumbers" type="tns:ArrayOfUKContactNumber" />
+          <s:element minOccurs="0" maxOccurs="1" name="Addresses" type="tns:ArrayOfBS7666Address" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PersonName">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RequestedName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FullName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Suffixes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="Initials" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FamilyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GivenNames" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="Titles" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfContactEmail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ContactEmail" nillable="true" type="tns:ContactEmail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ContactEmail">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Preferred" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Usage" type="tns:ContactUsage" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ContactUsage">
+        <s:restriction base="s:string">
+          <s:enumeration value="NotSpecified" />
+          <s:enumeration value="Work" />
+          <s:enumeration value="Home" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfUKContactNumber">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UKContactNumber" nillable="true" type="tns:UKContactNumber" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UKContactNumber">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Preferred" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Mobile" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Usage" type="tns:ContactUsage" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExtensionNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NationalNumber" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ContactNumber">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:UKContactNumber">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ContactType" type="tns:ContactType" />
+              <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="EnableExtensionHighlighting" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ContactType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SortOrder" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBS7666Address">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BS7666Address" nillable="true" type="tns:BS7666Address" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BS7666Address">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="GridEasting" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="GridNorthing" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Postcode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdministrativeArea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Town" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Locality" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StreetName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Saon" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Paon" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usrn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Uprn" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfJob">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Job" nillable="true" type="tns:Job" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Job">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="JobTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="JobSummary" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Teams" type="tns:ArrayOfTeam" />
+          <s:element minOccurs="0" maxOccurs="1" name="Roles" type="tns:ArrayOfJobRole" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContactNumbers" type="tns:ArrayOfContactNumber" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorkLocations" type="tns:ArrayOfWorkLocation" />
+          <s:element minOccurs="0" maxOccurs="1" name="Managers" type="tns:ArrayOfEmployee" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTeam">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Team" nillable="true" type="tns:Team" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Team">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ParentId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Level" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Keywords" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContactDetails" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Parent" type="tns:Team" />
+          <s:element minOccurs="0" maxOccurs="1" name="Services" type="tns:ArrayOfService" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfService">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Service" nillable="true" type="tns:Service" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Service">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Summary" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NavigateUrl" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfContactNumber">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ContactNumber" nillable="true" type="tns:ContactNumber" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfWorkLocation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WorkLocation" nillable="true" type="tns:WorkLocation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WorkLocation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="tns:BS7666Address" />
+          <s:element minOccurs="1" maxOccurs="1" name="BasedAtHome" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="NoFixedLocation" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="JobLinkId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Room" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Floor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Block" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="StaffPerson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intPersonId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StaffPersonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StaffPersonResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MultipleStaffPeople">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlStaffIDs" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MultipleStaffPeopleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MultipleStaffPeopleResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmployeeByUsername">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="includeFutureEmployees" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="includePastMonths" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmployeeByUsernameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EmployeeByUsernameResult" type="tns:Employee" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectPersonByLoginName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectPersonByLoginNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectPersonByLoginNameResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Team">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intTeamId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TeamResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TeamResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TeamHierarchy">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intRootTeamId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TeamHierarchyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TeamHierarchyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TeamBuilding">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intBuildingId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intTeamId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TeamBuildingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TeamBuildingResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TeamService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intServiceId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TeamServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TeamServiceResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TeamByExEmployee">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fullName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TeamByExEmployeeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TeamByExEmployeeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TeamByExEmployeeId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="personId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TeamByExEmployeeIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TeamByExEmployeeIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StaffSimpleSearch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchCriteria" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="numberOfResults" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StaffSimpleSearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StaffSimpleSearchResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StaffSimpleSearch_optByLastName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strSearchQuery" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="byLastName" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="numberOfResults" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StaffSimpleSearch_optByLastNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StaffSimpleSearch_optByLastNameResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StaffSimpleSearch_ChildrensServices">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strSearchQuery" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StaffSimpleSearch_ChildrensServicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StaffSimpleSearch_ChildrensServicesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StaffA2ZListing">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strA2ZMenuSelection" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StaffA2ZListingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StaffA2ZListingResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactTypes">
+        <s:complexType />
+      </s:element>
+      <s:element name="ContactTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ContactTypesResult" type="tns:ArrayOfContactType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfContactType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ContactType" nillable="true" type="tns:ContactType" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SearchStaff">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="searchTerm" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="numberOfResults" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchStaffResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchStaffResult" type="tns:ArrayOfEmployee" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PeopleInJob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="jobId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PeopleInJobResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PeopleInJobResult" type="tns:ArrayOfPerson" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPerson">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Person" nillable="true" type="tns:Person" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="StaffRoleSoapIn">
+    <wsdl:part name="parameters" element="tns:StaffRole" />
+  </wsdl:message>
+  <wsdl:message name="StaffRoleSoapOut">
+    <wsdl:part name="parameters" element="tns:StaffRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="RolesSoapIn">
+    <wsdl:part name="parameters" element="tns:Roles" />
+  </wsdl:message>
+  <wsdl:message name="RolesSoapOut">
+    <wsdl:part name="parameters" element="tns:RolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="TeamBuildingsSoapIn">
+    <wsdl:part name="parameters" element="tns:TeamBuildings" />
+  </wsdl:message>
+  <wsdl:message name="TeamBuildingsSoapOut">
+    <wsdl:part name="parameters" element="tns:TeamBuildingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffFloorWardensSoapIn">
+    <wsdl:part name="parameters" element="tns:StaffFloorWardens" />
+  </wsdl:message>
+  <wsdl:message name="StaffFloorWardensSoapOut">
+    <wsdl:part name="parameters" element="tns:StaffFloorWardensResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffFirstAidSoapIn">
+    <wsdl:part name="parameters" element="tns:StaffFirstAid" />
+  </wsdl:message>
+  <wsdl:message name="StaffFirstAidSoapOut">
+    <wsdl:part name="parameters" element="tns:StaffFirstAidResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffPersonSoapIn">
+    <wsdl:part name="parameters" element="tns:StaffPerson" />
+  </wsdl:message>
+  <wsdl:message name="StaffPersonSoapOut">
+    <wsdl:part name="parameters" element="tns:StaffPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="MultipleStaffPeopleSoapIn">
+    <wsdl:part name="parameters" element="tns:MultipleStaffPeople" />
+  </wsdl:message>
+  <wsdl:message name="MultipleStaffPeopleSoapOut">
+    <wsdl:part name="parameters" element="tns:MultipleStaffPeopleResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmployeeByUsernameSoapIn">
+    <wsdl:part name="parameters" element="tns:EmployeeByUsername" />
+  </wsdl:message>
+  <wsdl:message name="EmployeeByUsernameSoapOut">
+    <wsdl:part name="parameters" element="tns:EmployeeByUsernameResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectPersonByLoginNameSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectPersonByLoginName" />
+  </wsdl:message>
+  <wsdl:message name="SelectPersonByLoginNameSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectPersonByLoginNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="TeamSoapIn">
+    <wsdl:part name="parameters" element="tns:Team" />
+  </wsdl:message>
+  <wsdl:message name="TeamSoapOut">
+    <wsdl:part name="parameters" element="tns:TeamResponse" />
+  </wsdl:message>
+  <wsdl:message name="TeamHierarchySoapIn">
+    <wsdl:part name="parameters" element="tns:TeamHierarchy" />
+  </wsdl:message>
+  <wsdl:message name="TeamHierarchySoapOut">
+    <wsdl:part name="parameters" element="tns:TeamHierarchyResponse" />
+  </wsdl:message>
+  <wsdl:message name="TeamBuildingSoapIn">
+    <wsdl:part name="parameters" element="tns:TeamBuilding" />
+  </wsdl:message>
+  <wsdl:message name="TeamBuildingSoapOut">
+    <wsdl:part name="parameters" element="tns:TeamBuildingResponse" />
+  </wsdl:message>
+  <wsdl:message name="TeamServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:TeamService" />
+  </wsdl:message>
+  <wsdl:message name="TeamServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:TeamServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="TeamByExEmployeeSoapIn">
+    <wsdl:part name="parameters" element="tns:TeamByExEmployee" />
+  </wsdl:message>
+  <wsdl:message name="TeamByExEmployeeSoapOut">
+    <wsdl:part name="parameters" element="tns:TeamByExEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="TeamByExEmployeeIdSoapIn">
+    <wsdl:part name="parameters" element="tns:TeamByExEmployeeId" />
+  </wsdl:message>
+  <wsdl:message name="TeamByExEmployeeIdSoapOut">
+    <wsdl:part name="parameters" element="tns:TeamByExEmployeeIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffSimpleSearchSoapIn">
+    <wsdl:part name="parameters" element="tns:StaffSimpleSearch" />
+  </wsdl:message>
+  <wsdl:message name="StaffSimpleSearchSoapOut">
+    <wsdl:part name="parameters" element="tns:StaffSimpleSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffSimpleSearch_optByLastNameSoapIn">
+    <wsdl:part name="parameters" element="tns:StaffSimpleSearch_optByLastName" />
+  </wsdl:message>
+  <wsdl:message name="StaffSimpleSearch_optByLastNameSoapOut">
+    <wsdl:part name="parameters" element="tns:StaffSimpleSearch_optByLastNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffSimpleSearch_ChildrensServicesSoapIn">
+    <wsdl:part name="parameters" element="tns:StaffSimpleSearch_ChildrensServices" />
+  </wsdl:message>
+  <wsdl:message name="StaffSimpleSearch_ChildrensServicesSoapOut">
+    <wsdl:part name="parameters" element="tns:StaffSimpleSearch_ChildrensServicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffA2ZListingSoapIn">
+    <wsdl:part name="parameters" element="tns:StaffA2ZListing" />
+  </wsdl:message>
+  <wsdl:message name="StaffA2ZListingSoapOut">
+    <wsdl:part name="parameters" element="tns:StaffA2ZListingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContactTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:ContactTypes" />
+  </wsdl:message>
+  <wsdl:message name="ContactTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:ContactTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchStaffSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchStaff" />
+  </wsdl:message>
+  <wsdl:message name="SearchStaffSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchStaffResponse" />
+  </wsdl:message>
+  <wsdl:message name="PeopleInJobSoapIn">
+    <wsdl:part name="parameters" element="tns:PeopleInJob" />
+  </wsdl:message>
+  <wsdl:message name="PeopleInJobSoapOut">
+    <wsdl:part name="parameters" element="tns:PeopleInJobResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FindStaffWebServiceSoap">
+    <wsdl:operation name="StaffRole">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets all staff in a role.</wsdl:documentation>
+      <wsdl:input message="tns:StaffRoleSoapIn" />
+      <wsdl:output message="tns:StaffRoleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Roles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets all available roles</wsdl:documentation>
+      <wsdl:input message="tns:RolesSoapIn" />
+      <wsdl:output message="tns:RolesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TeamBuildings">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets building details and returns a DataSet.</wsdl:documentation>
+      <wsdl:input message="tns:TeamBuildingsSoapIn" />
+      <wsdl:output message="tns:TeamBuildingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StaffFloorWardens">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets floor wardens details and returns a DataSet.</wsdl:documentation>
+      <wsdl:input message="tns:StaffFloorWardensSoapIn" />
+      <wsdl:output message="tns:StaffFloorWardensSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StaffFirstAid">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets first aiders and defibrillator trained employees.</wsdl:documentation>
+      <wsdl:input message="tns:StaffFirstAidSoapIn" />
+      <wsdl:output message="tns:StaffFirstAidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StaffPerson">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets all details about a person and returns a DataSet.</wsdl:documentation>
+      <wsdl:input message="tns:StaffPersonSoapIn" />
+      <wsdl:output message="tns:StaffPersonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MultipleStaffPeople">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets details about a multiple set of people defined by an xml string and returns a DataSet.</wsdl:documentation>
+      <wsdl:input message="tns:MultipleStaffPeopleSoapIn" />
+      <wsdl:output message="tns:MultipleStaffPeopleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeByUsername">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Select full details about an employee based on their network login name</wsdl:documentation>
+      <wsdl:input message="tns:EmployeeByUsernameSoapIn" />
+      <wsdl:output message="tns:EmployeeByUsernameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectPersonByLoginName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Select full details about a person based on their network login name (for new applications use EmployeeByUsername() instead)</wsdl:documentation>
+      <wsdl:input message="tns:SelectPersonByLoginNameSoapIn" />
+      <wsdl:output message="tns:SelectPersonByLoginNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Team">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets all details about a team and its child teams and returns a DataSet.</wsdl:documentation>
+      <wsdl:input message="tns:TeamSoapIn" />
+      <wsdl:output message="tns:TeamSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TeamHierarchy">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets a hierarchy of team data and returns it as a DataSet.</wsdl:documentation>
+      <wsdl:input message="tns:TeamHierarchySoapIn" />
+      <wsdl:output message="tns:TeamHierarchySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TeamBuilding">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets all details about a building and returns a DataSet.</wsdl:documentation>
+      <wsdl:input message="tns:TeamBuildingSoapIn" />
+      <wsdl:output message="tns:TeamBuildingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TeamService">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets all details about a service returns a DataSet.</wsdl:documentation>
+      <wsdl:input message="tns:TeamServiceSoapIn" />
+      <wsdl:output message="tns:TeamServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TeamByExEmployee">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets the team an ex-employee worked for, based on their login name</wsdl:documentation>
+      <wsdl:input message="tns:TeamByExEmployeeSoapIn" />
+      <wsdl:output message="tns:TeamByExEmployeeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TeamByExEmployeeId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets the teams an ex-employee worked for, based on their personid</wsdl:documentation>
+      <wsdl:input message="tns:TeamByExEmployeeIdSoapIn" />
+      <wsdl:output message="tns:TeamByExEmployeeIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StaffSimpleSearch">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Searches for staff by job title/name or partial job title/name and returns a DataSet.</wsdl:documentation>
+      <wsdl:input message="tns:StaffSimpleSearchSoapIn" />
+      <wsdl:output message="tns:StaffSimpleSearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StaffSimpleSearch_optByLastName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Searches for staff by job title/name or partial job title/name and returns a DataSet. Setting the boolean byLastName flag to true will invoke search by last name only.</wsdl:documentation>
+      <wsdl:input message="tns:StaffSimpleSearch_optByLastNameSoapIn" />
+      <wsdl:output message="tns:StaffSimpleSearch_optByLastNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StaffSimpleSearch_ChildrensServices">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Searches for Children's Services staff by job title/name or partial job title/name and returns a DataSet.</wsdl:documentation>
+      <wsdl:input message="tns:StaffSimpleSearch_ChildrensServicesSoapIn" />
+      <wsdl:output message="tns:StaffSimpleSearch_ChildrensServicesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StaffA2ZListing">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Searches for staff that begin with a specified letter and returns a DataSet.</wsdl:documentation>
+      <wsdl:input message="tns:StaffA2ZListingSoapIn" />
+      <wsdl:output message="tns:StaffA2ZListingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactTypes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets the possible types of contact number</wsdl:documentation>
+      <wsdl:input message="tns:ContactTypesSoapIn" />
+      <wsdl:output message="tns:ContactTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchStaff">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Search for staff partial name or job title</wsdl:documentation>
+      <wsdl:input message="tns:SearchStaffSoapIn" />
+      <wsdl:output message="tns:SearchStaffSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PeopleInJob">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets the people employed in a job</wsdl:documentation>
+      <wsdl:input message="tns:PeopleInJobSoapIn" />
+      <wsdl:output message="tns:PeopleInJobSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FindStaffWebServiceSoap" type="tns:FindStaffWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="StaffRole">
+      <soap:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/StaffRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Roles">
+      <soap:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/Roles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TeamBuildings">
+      <soap:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/TeamBuildings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StaffFloorWardens">
+      <soap:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/StaffFloorWardens" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StaffFirstAid">
+      <soap:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/StaffFirstAid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StaffPerson">
+      <soap:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/StaffPerson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MultipleStaffPeople">
+      <soap:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/MultipleStaffPeople" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeByUsername">
+      <soap:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/EmployeeByUsername" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectPersonByLoginName">
+      <soap:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/SelectPersonByLoginName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Team">
+      <soap:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/Team" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TeamHierarchy">
+      <soap:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/TeamHierarchy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TeamBuilding">
+      <soap:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/TeamBuilding" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TeamService">
+      <soap:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/TeamService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TeamByExEmployee">
+      <soap:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/TeamByExEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TeamByExEmployeeId">
+      <soap:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/TeamByExEmployeeId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StaffSimpleSearch">
+      <soap:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/StaffSimpleSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StaffSimpleSearch_optByLastName">
+      <soap:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/StaffSimpleSearch_optByLastName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StaffSimpleSearch_ChildrensServices">
+      <soap:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/StaffSimpleSearch_ChildrensServices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StaffA2ZListing">
+      <soap:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/StaffA2ZListing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactTypes">
+      <soap:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/ContactTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchStaff">
+      <soap:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/SearchStaff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PeopleInJob">
+      <soap:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/PeopleInJob" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FindStaffWebServiceSoap12" type="tns:FindStaffWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="StaffRole">
+      <soap12:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/StaffRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Roles">
+      <soap12:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/Roles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TeamBuildings">
+      <soap12:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/TeamBuildings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StaffFloorWardens">
+      <soap12:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/StaffFloorWardens" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StaffFirstAid">
+      <soap12:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/StaffFirstAid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StaffPerson">
+      <soap12:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/StaffPerson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MultipleStaffPeople">
+      <soap12:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/MultipleStaffPeople" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeByUsername">
+      <soap12:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/EmployeeByUsername" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectPersonByLoginName">
+      <soap12:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/SelectPersonByLoginName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Team">
+      <soap12:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/Team" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TeamHierarchy">
+      <soap12:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/TeamHierarchy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TeamBuilding">
+      <soap12:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/TeamBuilding" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TeamService">
+      <soap12:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/TeamService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TeamByExEmployee">
+      <soap12:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/TeamByExEmployee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TeamByExEmployeeId">
+      <soap12:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/TeamByExEmployeeId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StaffSimpleSearch">
+      <soap12:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/StaffSimpleSearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StaffSimpleSearch_optByLastName">
+      <soap12:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/StaffSimpleSearch_optByLastName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StaffSimpleSearch_ChildrensServices">
+      <soap12:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/StaffSimpleSearch_ChildrensServices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StaffA2ZListing">
+      <soap12:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/StaffA2ZListing" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactTypes">
+      <soap12:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/ContactTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchStaff">
+      <soap12:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/SearchStaff" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PeopleInJob">
+      <soap12:operation soapAction="http://www.eastsussex.gov.uk/EsccWebTeam.FindStaff.WebService/PeopleInJob" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FindStaffWebService">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Find Staff Web Service</wsdl:documentation>
+    <wsdl:port name="FindStaffWebServiceSoap" binding="tns:FindStaffWebServiceSoap">
+      <soap:address location="http://localhost/esccwebteam.findstaff.webservice/findstaffwebservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FindStaffWebServiceSoap12" binding="tns:FindStaffWebServiceSoap12">
+      <soap12:address location="http://localhost/esccwebteam.findstaff.webservice/findstaffwebservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

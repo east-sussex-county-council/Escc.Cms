@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6710E9EE-DEAB-4569-ACE6-F10159D6D447}</ProjectGuid>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccProvider>
+    </SccProvider>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>EsccWebTeam.Cms</AssemblyName>
+    <AssemblyOriginatorKeyFile>s:\_strong names\esccdev.snk</AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>EsccWebTeam.Cms</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <SccAuxPath>
+    </SccAuxPath>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <SignAssembly>true</SignAssembly>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>bin\Debug\EsccWebTeam.Cms.xml</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>bin\Release\EsccWebTeam.Cms.xml</DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EsccWebTeam.Exceptions.Publishers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=06fad7304560ae6f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>S:\_Reference DLLs\Microsoft Exception Management Application Block\EsccWebTeam.Exceptions.Publishers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationBlocks.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=06fad7304560ae6f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>S:\_Reference DLLs\Microsoft Data Access Application Block 2.0\Release strong-named .NET 2.0\Microsoft.ApplicationBlocks.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationBlocks.ExceptionManagement, Version=1.0.0.0, Culture=neutral, PublicKeyToken=06fad7304560ae6f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>S:\_Reference DLLs\Microsoft Exception Management Application Block\Release strong-named .NET 2\Microsoft.ApplicationBlocks.ExceptionManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ContentManagement.Common, Version=5.0.1200.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>S:\_Reference DLLs\Microsoft Content Management Server 2002\Microsoft.ContentManagement.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ContentManagement.Publishing, Version=5.0.1200.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>S:\_Reference DLLs\Microsoft Content Management Server 2002\Microsoft.ContentManagement.Publishing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ContentManagement.Publishing.Extensions.Placeholders, Version=5.0.1200.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>S:\_Reference DLLs\Microsoft Content Management Server 2002\Microsoft.ContentManagement.Publishing.Extensions.Placeholders.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.ContentManagement.Web, Version=5.0.1200.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>S:\_Reference DLLs\Microsoft Content Management Server 2002\Microsoft.ContentManagement.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ContentManagement.WebAuthor, Version=5.0.1200.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>S:\_Reference DLLs\Microsoft Content Management Server 2002\Microsoft.ContentManagement.WebAuthor.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ContentManagement.WebControls, Version=5.0.1200.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>S:\_Reference DLLs\Microsoft Content Management Server 2002\Microsoft.ContentManagement.WebControls.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Design">
+      <Name>System.Design</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AllCapsValidator.cs" />
+    <Compile Include="CmsAuthorisationModule.cs" />
+    <Compile Include="CmsCacheModule.cs" />
+    <Compile Include="CmsEventBehaviours.cs" />
+    <Compile Include="CmsTemplate.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NoDocumentsValidator.cs" />
+    <Compile Include="Permissions\CmsNode.cs" />
+    <Compile Include="Permissions\CmsNodeType.cs" />
+    <Compile Include="Permissions\CmsPermissions.cs" />
+    <Compile Include="Permissions\CmsRole.cs" />
+    <Compile Include="Placeholders\SocialMediaPlaceholderControl.cs" />
+    <Compile Include="Placeholders\TwitterScriptValidator.cs" />
+    <Compile Include="PostingAnalysis.cs" />
+    <Compile Include="PreviewModeContainer.cs" />
+    <Compile Include="Placeholders\RichHtmlPlaceholderControl.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CmsEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CmsEventHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CmsTraverser.cs" />
+    <Compile Include="CmsUtilities.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EnforceCmsHostModule.cs" />
+    <Compile Include="FixCmsRequestModule.cs" />
+    <Compile Include="LatestSection.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Placeholders\AlternativeAttachmentPlaceholderControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Placeholders\CheckBoxListPlaceholder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Placeholders\CheckBoxPlaceholderControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Placeholders\ImageDetailsPlaceholderControl.cs" />
+    <Compile Include="Placeholders\CssClassPlaceholderControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Placeholders\DateTimePlaceholderControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Placeholders\DropDownListPlaceholderControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Placeholders\FormAttachmentPlaceholderControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Placeholders\FormUrlPlaceholderControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Placeholders\LandingBoxSelectPlaceholderControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Placeholders\MainAttachmentPlaceholderControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Placeholders\RawXhtmlPlaceholderControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Placeholders\TextPlaceholderControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Placeholders\XhtmlAttachmentPlaceholderControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Placeholders\XhtmlImagePlaceholderControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Placeholders\XmlDropDownPlaceHolder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="LinkTracker.cs" />
+    <Compile Include="SectionLayoutConfigurationCollection.cs" />
+    <Compile Include="SectionLayoutConfigurationSection.cs" />
+    <Compile Include="SectionLayoutConfigurationElement.cs" />
+    <Compile Include="SectionLayoutPlaceholderControl.cs" />
+    <Compile Include="SectionLayoutManager.cs" />
+    <Compile Include="SnapshotType.cs" />
+    <Compile Include="TopicSection.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UnhandledCmsExceptionModule.cs" />
+    <Compile Include="UpdateModeContainer.cs" />
+    <Compile Include="Web References\FindStaffWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="WorkflowStage.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.example.config" />
+    <None Include="app.config" />
+    <None Include="LICENSE.md" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="README.md" />
+    <None Include="Web References\FindStaffWebService\ContactType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\FindStaffWebService\Employee.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\FindStaffWebService\findstaffwebservice.disco" />
+    <None Include="Web References\FindStaffWebService\findstaffwebservice.wsdl" />
+    <None Include="Web References\FindStaffWebService\JobRole.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\FindStaffWebService\Person.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\FindStaffWebService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Git\Escc.Data.Web\EsccWebTeam.Data.Web.csproj">
+      <Project>{9c56d3dd-4952-4a1b-9ad6-907a1142872f}</Project>
+      <Name>EsccWebTeam.Data.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Git\Escc.TextStatistics\Escc.TextStatistics.csproj">
+      <Project>{39F93B50-BE0D-4178-9FFD-417864298D50}</Project>
+      <Name>Escc.TextStatistics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\VS Projects\_Libraries for re-use\EsccWebTeam.Data.ActiveDirectory\EsccWebTeam.Data.ActiveDirectory.csproj">
+      <Project>{5F1BBB42-C1C6-4110-A3E4-720420A3C27D}</Project>
+      <Name>EsccWebTeam.Data.ActiveDirectory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Git\Escc.Data.Xml\EsccWebTeam.Data.Xml.csproj">
+      <Project>{86b2725c-9c37-44a4-93c7-f5122afa0809}</Project>
+      <Name>EsccWebTeam.Data.Xml</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\VS Projects\_Libraries for re-use\EsccWebTeam.HouseStyle\EsccWebTeam.HouseStyle.csproj">
+      <Project>{1c429378-dbf2-4af7-88ac-c059aa163682}</Project>
+      <Name>EsccWebTeam.HouseStyle</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Git\Escc.NavigationControls\EsccWebTeam.NavigationControls.csproj">
+      <Project>{0323f668-1723-44a1-8c94-f91dc59ef315}</Project>
+      <Name>EsccWebTeam.NavigationControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\VS Projects\_Standards\E-Government Metadata Standard %28E-GMS%29\EsccWebTeam.Egms\EsccWebTeam.Egms.csproj">
+      <Project>{78083dcb-b12f-4950-86c5-3a844d8604f3}</Project>
+      <Name>EsccWebTeam.Egms</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost/esccwebteam.findstaff.webservice/findstaffwebservice.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\FindStaffWebService\</RelPath>
+      <UpdateFromURL>http://localhost/esccwebteam.findstaff.webservice/findstaffwebservice.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>EsccWebTeam_Cms_FindStaffWebService_FindStaffWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
