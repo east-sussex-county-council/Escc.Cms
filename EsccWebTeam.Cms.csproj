@@ -290,11 +290,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Git\Escc.Data.Web\EsccWebTeam.Data.Web.csproj">
+    <ProjectReference Include="..\Escc.Data.Web\EsccWebTeam.Data.Web.csproj">
       <Project>{9c56d3dd-4952-4a1b-9ad6-907a1142872f}</Project>
       <Name>EsccWebTeam.Data.Web</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Git\Escc.TextStatistics\Escc.TextStatistics.csproj">
+    <ProjectReference Include="..\Escc.TextStatistics\Escc.TextStatistics.csproj">
       <Project>{39F93B50-BE0D-4178-9FFD-417864298D50}</Project>
       <Name>Escc.TextStatistics</Name>
     </ProjectReference>
@@ -302,7 +302,7 @@
       <Project>{5F1BBB42-C1C6-4110-A3E4-720420A3C27D}</Project>
       <Name>EsccWebTeam.Data.ActiveDirectory</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Git\Escc.Data.Xml\EsccWebTeam.Data.Xml.csproj">
+    <ProjectReference Include="..\Escc.Data.Xml\EsccWebTeam.Data.Xml.csproj">
       <Project>{86b2725c-9c37-44a4-93c7-f5122afa0809}</Project>
       <Name>EsccWebTeam.Data.Xml</Name>
     </ProjectReference>
@@ -310,7 +310,7 @@
       <Project>{1c429378-dbf2-4af7-88ac-c059aa163682}</Project>
       <Name>EsccWebTeam.HouseStyle</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Git\Escc.NavigationControls\EsccWebTeam.NavigationControls.csproj">
+    <ProjectReference Include="..\Escc.NavigationControls\EsccWebTeam.NavigationControls.csproj">
       <Project>{0323f668-1723-44a1-8c94-f91dc59ef315}</Project>
       <Name>EsccWebTeam.NavigationControls</Name>
     </ProjectReference>
