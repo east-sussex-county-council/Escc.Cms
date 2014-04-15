@@ -19,7 +19,7 @@
       <xsl:with-param name="ref_6" select="'Microsoft.ContentManagement.Publishing.Extensions.Placeholders.dll'" />
       <xsl:with-param name="ref_7" select="'Microsoft.ContentManagement.Web.dll'" />
       <xsl:with-param name="ref_8" select="'Microsoft.ContentManagement.WebAuthor.dll'" />
-      <xsl:with-param name="ref_9" select="'Microsoft.ContentManagement.WebControls'" />
+      <xsl:with-param name="ref_9" select="'Microsoft.ContentManagement.WebControls.dll'" />
     </xsl:call-template>
 
   </xsl:template>
