@@ -263,7 +263,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.example.config" />
-    <None Include="app.config" />
     <None Include="LICENSE.md" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
