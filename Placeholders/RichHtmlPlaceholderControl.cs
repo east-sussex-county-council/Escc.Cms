@@ -517,7 +517,7 @@ namespace EsccWebTeam.Cms.Placeholders
                         }
 
                         // Get URL of form and HTML encode it as we reassable the link
-                        var formUrl = UriFormatter.GetWebsiteEmailFormUri(email, linkTextForUrl).ToString();
+                        var formUrl = UriFormatter.GetWebsiteEmailFormUri(email, linkTextForUrl, HttpContext.Current.Request.Url).ToString();
                         return match.Groups[1].Value + HttpUtility.HtmlEncode(formUrl) + match.Groups[4].Value + linkText + "</a>";
                     });
             return displayHtml;
