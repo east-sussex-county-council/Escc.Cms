@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using eastsussexgovuk.webservices.TextXhtml.HouseStyle;
+using Escc.Elibrary;
 using EsccWebTeam.HouseStyle;
 using Microsoft.ContentManagement.Publishing;
 using Microsoft.ContentManagement.Publishing.Extensions.Placeholders;
@@ -462,7 +463,7 @@ namespace EsccWebTeam.Cms.Placeholders
             }
 
             // Recognise proxy elibrary links and rewrite them to the actual link
-            displayHtml = CmsUtilities.ParseAndRewriteElibraryLinks(displayHtml);
+            displayHtml = ElibraryLinkProxy.ParseAndRewriteElibraryLinks(displayHtml);
 
             // Recognise and style calendar links
             displayHtml = Regex.Replace(displayHtml, " href=\"([^\"]+" + @"\." + "calendar[^\"]*)\"", " class=\"hcal\" href=\"$1\"");

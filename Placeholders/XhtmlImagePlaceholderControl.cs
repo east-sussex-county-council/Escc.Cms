@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
+using Escc.Elibrary;
 using EsccWebTeam.Data.ActiveDirectory;
 using EsccWebTeam.Data.Web;
 using Microsoft.ContentManagement.Publishing.Extensions.Placeholders;
@@ -187,7 +188,7 @@ namespace EsccWebTeam.Cms.Placeholders
                         {
                             var parsedUri = Iri.MakeAbsolute(new Uri(href, UriKind.RelativeOrAbsolute));
                             var queryString = Iri.SplitQueryString(parsedUri.Query);
-                            href = CmsUtilities.RewriteElibraryLink(queryString);
+                            href = ElibraryLinkProxy.RewriteElibraryLink(queryString);
                         }
                         this.link.HRef = HttpUtility.HtmlEncode(href);
                     }
