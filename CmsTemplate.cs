@@ -72,6 +72,8 @@ namespace EsccWebTeam.Cms
                     SupportHttpCaching();
 
                     this.PreRenderComplete += new EventHandler(CheckForInvalidMetadata_PreRenderComplete);
+
+                    FormatDateProperties();
                 }
                 catch (System.Threading.ThreadAbortException)
                 {
@@ -87,6 +89,25 @@ namespace EsccWebTeam.Cms
                 // No change for non-CMS machines
                 base.OnInit(e);
             }
+        }
+
+        /// <summary>
+        /// Parses and formats date ptoperties in a way friendly for editors
+        /// </summary>
+        private void FormatDateProperties()
+        {
+            var dateProperties = new List<string> { "Copied to live", "Copied to live - test", "Copied to review", "Copy to live site", "Copy to review site" };
+            PostingEvents.Current.CustomPropertyChanging += (sender, args) =>
+                {
+                    if (dateProperties.Contains(args.PropertyName))
+                    {
+                        var selectedDate = DateTimeFormatter.ParseDate(args.PropertyValue.ToString());
+                        if (selectedDate.HasValue)
+                        {
+                            args.PropertyValue = DateTimeFormatter.ShortBritishDate(selectedDate.Value);
+                        }
+                    }
+                };
         }
 
         /// <summary>
