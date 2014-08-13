@@ -97,9 +97,8 @@ namespace EsccWebTeam.Cms.Placeholders
                     if (res != null) size = CmsUtilities.GetResourceFileSize(res);
                     if (size.Length > 0)
                     {
-                        resKey = resKey.Replace("Title", "Suffix");
                         HtmlGenericControl sizeElement = new HtmlGenericControl("span");
-                        sizeElement.InnerHtml = new StringBuilder().Append(" (").Append(this.resManager.GetString("Format" + this.attachmentType.ToString())).Append(" &#8211; <span class=\"downloadSize\">").Append(size).Append("</span>)").Append(this.resManager.GetString(resKey.ToString())).ToString();
+                        sizeElement.InnerHtml = new StringBuilder().Append(" (").Append(this.resManager.GetString("Format" + this.attachmentType.ToString())).Append(" &#8211; <span class=\"downloadSize\">").Append(size).Append("</span>)").ToString();
                         sizeElement.Attributes.Add("class", "downloadDetail");
                         presentationContainer.Controls.Add(sizeElement);
                     }

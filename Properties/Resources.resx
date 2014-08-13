@@ -147,15 +147,6 @@
   <data name="FormAttachmentRtfTitle" xml:space="preserve">
     <value>Fill in the form on your computer and email it to us</value>
   </data>
-  <data name="FormAttachmentPdfSuffix" xml:space="preserve">
-    <value />
-  </data>
-  <data name="FormAttachmentRtfSuffix" xml:space="preserve">
-    <value>&lt;a href="/help/forms/" id="howToEmail"&gt;How to email this form&lt;/a&gt;</value>
-  </data>
-  <data name="FormAttachmentRtfAndSignSuffix" xml:space="preserve">
-    <value />
-  </data>
   <data name="FormatPdf" xml:space="preserve">
     <value>Acrobat format</value>
   </data>
@@ -168,17 +159,11 @@
   <data name="FormAttachmentXhtml" xml:space="preserve">
     <value>Do it online</value>
   </data>
-  <data name="FormAttachmentXlsSuffix" xml:space="preserve">
-    <value />
-  </data>
   <data name="FormatXls" xml:space="preserve">
     <value>Excel format</value>
   </data>
   <data name="FormAttachmentXls" xml:space="preserve">
     <value>Email it to us</value>
-  </data>
-  <data name="FormAttachmentXlsPrintSuffix" xml:space="preserve">
-    <value />
   </data>
   <data name="FormatXlsPrint" xml:space="preserve">
     <value>Excel format</value>
