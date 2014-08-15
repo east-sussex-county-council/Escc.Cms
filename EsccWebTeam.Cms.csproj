@@ -36,8 +36,10 @@
     </UpgradeBackupLocation>
     <OldToolsVersion>3.5</OldToolsVersion>
     <SignAssembly>true</SignAssembly>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\Solution files\eastsussex.gov.uk solutions\EsccWebTeam.Website.Solution\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -86,9 +88,19 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Escc.TextStatistics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=06fad7304560ae6f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Solution files\eastsussex.gov.uk solutions\EsccWebTeam.Website.Solution\packages\Escc.TextStatistics.1.0.0.0\lib\Escc.TextStatistics.dll</HintPath>
+    </Reference>
     <Reference Include="EsccWebTeam.Exceptions.Publishers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=06fad7304560ae6f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>S:\_Reference DLLs\Microsoft Exception Management Application Block\EsccWebTeam.Exceptions.Publishers.dll</HintPath>
+    </Reference>
+    <Reference Include="Exceptionless">
+      <HintPath>..\..\Solution files\eastsussex.gov.uk solutions\EsccWebTeam.Website.Solution\packages\Exceptionless.1.5.2092\lib\net40\Exceptionless.dll</HintPath>
+    </Reference>
+    <Reference Include="Exceptionless.Models">
+      <HintPath>..\..\Solution files\eastsussex.gov.uk solutions\EsccWebTeam.Website.Solution\packages\Exceptionless.1.5.2092\lib\net40\Exceptionless.Models.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ApplicationBlocks.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=06fad7304560ae6f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -264,6 +276,7 @@
   <ItemGroup>
     <None Include="app.example.config" />
     <None Include="LICENSE.md" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -296,10 +309,6 @@
     <ProjectReference Include="..\Escc.Elibrary\Escc.Elibrary.csproj">
       <Project>{3d2240e0-d165-4c52-a97b-730542975d3a}</Project>
       <Name>Escc.Elibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Escc.TextStatistics\Escc.TextStatistics.csproj">
-      <Project>{39F93B50-BE0D-4178-9FFD-417864298D50}</Project>
-      <Name>Escc.TextStatistics</Name>
     </ProjectReference>
     <ProjectReference Include="..\Escc.Data.ActiveDirectory\EsccWebTeam.Data.ActiveDirectory.csproj">
       <Project>{5F1BBB42-C1C6-4110-A3E4-720420A3C27D}</Project>
@@ -349,4 +358,11 @@
     <PostBuildEvent>
     </PostBuildEvent>
   </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
 </Project>
