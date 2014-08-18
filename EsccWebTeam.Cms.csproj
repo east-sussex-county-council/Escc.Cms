@@ -88,15 +88,15 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Escc.TextStatistics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=06fad7304560ae6f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Solution files\eastsussex.gov.uk solutions\EsccWebTeam.Website.Solution\packages\Escc.TextStatistics.1.0.0.0\lib\Escc.TextStatistics.dll</HintPath>
+    <Reference Include="Escc.TextStatistics">
+      <HintPath>..\..\Solution files\eastsussex.gov.uk solutions\EsccWebTeam.Website.Solution\packages\Escc.TextStatistics.1.0.0\lib\Escc.TextStatistics.dll</HintPath>
     </Reference>
     <Reference Include="EsccWebTeam.Exceptions.Publishers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=06fad7304560ae6f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>S:\_Reference DLLs\Microsoft Exception Management Application Block\EsccWebTeam.Exceptions.Publishers.dll</HintPath>
     </Reference>
-    <Reference Include="Exceptionless">
+    <Reference Include="Exceptionless, Version=1.5.2092.0, Culture=neutral, PublicKeyToken=fc181f0a46f65747, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Solution files\eastsussex.gov.uk solutions\EsccWebTeam.Website.Solution\packages\Exceptionless.1.5.2092\lib\net40\Exceptionless.dll</HintPath>
     </Reference>
     <Reference Include="Exceptionless.Models">
