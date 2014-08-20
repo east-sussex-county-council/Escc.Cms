@@ -89,7 +89,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Escc.TextStatistics">
-      <HintPath>..\..\Solution files\eastsussex.gov.uk solutions\EsccWebTeam.Website.Solution\packages\Escc.TextStatistics.1.0.0\lib\Escc.TextStatistics.dll</HintPath>
+      <HintPath>packages\Escc.TextStatistics.1.0.1\lib\Escc.TextStatistics.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="EsccWebTeam.Exceptions.Publishers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=06fad7304560ae6f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
