@@ -16,6 +16,33 @@ namespace EsccWebTeam.Cms.Permissions
     public static class CmsPermissions
     {
         /// <summary>
+        /// Reads the names of CMS editor groups which do not have permissions on any channels.
+        /// </summary>
+        /// <returns></returns>
+        public static IList<string> ReadUnusedCmsEditorGroups()
+        {
+            CheckForConnectionString();
+
+            var query = "SELECT DISTINCT Role.Name FROM Node AS Role " +
+                        "LEFT JOIN NodeRole ON NodeRole.RoleGuid = Role.NodeGuid " +
+                        "LEFT JOIN Node AS Channel  ON Channel.Id = NodeRole.NodeId AND Channel.Type = " + ((int)CmsNodeType.Channel) +
+                        "WHERE Role.UserRoleType = " + ((int)CmsRole.Editor) +
+                        "GROUP BY Role.Name " +
+                        "HAVING COUNT(Channel.Id) = 0";
+
+            var groups = new List<string>();
+
+            using (var reader = SqlHelper.ExecuteReader(ConfigurationManager.ConnectionStrings["CMSDB"].ConnectionString, CommandType.Text, query))
+            {
+                while (reader.Read())
+                {
+                    groups.Add(reader["Name"].ToString());
+                }
+            }
+            return groups;
+        }
+
+        /// <summary>
         /// Reads the CMS groups for an active directory user
         /// </summary>
         /// <param name="domain">Active directory domain.</param>
