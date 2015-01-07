@@ -98,10 +98,10 @@
     </Reference>
     <Reference Include="Exceptionless, Version=1.5.2092.0, Culture=neutral, PublicKeyToken=fc181f0a46f65747, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Solution files\eastsussex.gov.uk solutions\EsccWebTeam.Website.Solution\packages\Exceptionless.1.5.2092\lib\net40\Exceptionless.dll</HintPath>
+      <HintPath>packages\Exceptionless.1.5.2092\lib\net40\Exceptionless.dll</HintPath>
     </Reference>
     <Reference Include="Exceptionless.Models">
-      <HintPath>..\..\Solution files\eastsussex.gov.uk solutions\EsccWebTeam.Website.Solution\packages\Exceptionless.1.5.2092\lib\net40\Exceptionless.Models.dll</HintPath>
+      <HintPath>packages\Exceptionless.1.5.2092\lib\net40\Exceptionless.Models.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ApplicationBlocks.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=06fad7304560ae6f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -359,11 +359,4 @@
     <PostBuildEvent>
     </PostBuildEvent>
   </PropertyGroup>
-  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
-  </Target>
 </Project>
