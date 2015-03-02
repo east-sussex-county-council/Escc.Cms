@@ -104,7 +104,11 @@ namespace EsccWebTeam.Cms
                         var selectedDate = DateTimeFormatter.ParseDate(args.PropertyValue.ToString());
                         if (selectedDate.HasValue)
                         {
-                            args.PropertyValue = DateTimeFormatter.ShortBritishDate(selectedDate.Value);
+                            var formattedDate = DateTimeFormatter.ShortBritishDate(selectedDate.Value);
+                            if (args.PropertyValue != formattedDate)
+                            {
+                                args.PropertyValue = formattedDate;
+                            }
                         }
                     }
                 };
