@@ -89,19 +89,20 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Escc.TextStatistics">
-      <HintPath>packages\Escc.TextStatistics.1.0.1\lib\Escc.TextStatistics.dll</HintPath>
+      <HintPath>packages\Escc.TextStatistics.1.0.2\lib\Escc.TextStatistics.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EsccWebTeam.Exceptions.Publishers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=06fad7304560ae6f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>S:\_Reference DLLs\Microsoft Exception Management Application Block\EsccWebTeam.Exceptions.Publishers.dll</HintPath>
     </Reference>
-    <Reference Include="Exceptionless, Version=1.5.2092.0, Culture=neutral, PublicKeyToken=fc181f0a46f65747, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\Exceptionless.1.5.2092\lib\net40\Exceptionless.dll</HintPath>
+    <Reference Include="Exceptionless">
+      <HintPath>packages\Exceptionless.1.5.2121\lib\net40\Exceptionless.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Exceptionless.Models">
-      <HintPath>packages\Exceptionless.1.5.2092\lib\net40\Exceptionless.Models.dll</HintPath>
+      <HintPath>packages\Exceptionless.1.5.2121\lib\net40\Exceptionless.Models.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.ApplicationBlocks.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=06fad7304560ae6f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
