@@ -1,4 +1,4 @@
-﻿using System;
+﻿ /*using System;
 using System.Web;
 using Escc.Content.Migration.Domain.Entity;
 using Microsoft.ContentManagement.Publishing;
@@ -6,7 +6,7 @@ using Microsoft.ContentManagement.Publishing.Events;
 
 namespace EsccWebTeam.Cms.Migration
 {
-    /// <summary>
+   /// <summary>
     /// When a page changes in Microsoft CMS, if the change needs to be migrated kick off the migration process to Umbraco
     /// </summary>
     public class CmsMigrationEventsModule : IHttpModule
@@ -162,4 +162,4 @@ namespace EsccWebTeam.Cms.Migration
             }
         }
     }
-}
+}*/

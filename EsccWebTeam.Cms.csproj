@@ -39,7 +39,6 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\Solution files\eastsussex.gov.uk solutions\EsccWebTeam.Website.Solution\</SolutionDir>
-    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -310,10 +309,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Escc.Content.Migration\Escc.Content.Migration.Domain\Escc.Content.Migration.Domain.csproj">
-      <Project>{66ffeabf-b51f-4d07-9452-1e3eb888d96d}</Project>
-      <Name>Escc.Content.Migration.Domain</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Escc.Data.Web\EsccWebTeam.Data.Web.csproj">
       <Project>{9c56d3dd-4952-4a1b-9ad6-907a1142872f}</Project>
       <Name>EsccWebTeam.Data.Web</Name>
