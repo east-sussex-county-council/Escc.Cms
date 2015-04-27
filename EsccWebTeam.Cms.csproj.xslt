@@ -20,6 +20,7 @@
       <xsl:with-param name="ref_7" select="'Microsoft.ContentManagement.Web.dll'" />
       <xsl:with-param name="ref_8" select="'Microsoft.ContentManagement.WebAuthor.dll'" />
       <xsl:with-param name="ref_9" select="'Microsoft.ContentManagement.WebControls.dll'" />
+      <xsl:with-param name="ref_10" select="'EsccWebTeam.Egms.dll'" />
     </xsl:call-template>
 
   </xsl:template>

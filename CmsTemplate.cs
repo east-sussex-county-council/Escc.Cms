@@ -14,7 +14,6 @@ using System.Web.UI.WebControls;
 using eastsussexgovuk.webservices.TextXhtml.HouseStyle;
 using EsccWebTeam.Cms.Placeholders;
 using EsccWebTeam.Data.Web;
-using EsccWebTeam.Egms;
 using EsccWebTeam.HouseStyle;
 using Microsoft.ApplicationBlocks.Data;
 using Microsoft.ApplicationBlocks.ExceptionManagement;
@@ -332,7 +331,7 @@ namespace EsccWebTeam.Cms
         {
             foreach (Control control in controls)
             {
-                var metadata = control as MetadataControl;
+                var metadata = control as EsccWebTeam.Egms.MetadataControl;
                 if (metadata != null)
                 {
                     // get a cms context

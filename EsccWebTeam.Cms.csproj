@@ -87,9 +87,20 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Escc.AddressAndPersonalDetails, Version=1.0.0.0, Culture=neutral, PublicKeyToken=06fad7304560ae6f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Escc.EastSussexGovUK\packages\Escc.AddressAndPersonalDetails.1.0.0\lib\Escc.AddressAndPersonalDetails.dll</HintPath>
+    </Reference>
     <Reference Include="Escc.TextStatistics">
       <HintPath>packages\Escc.TextStatistics.1.0.2\lib\Escc.TextStatistics.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Escc.Web.Metadata">
+      <HintPath>..\Escc.EastSussexGovUK\packages\Escc.Web.Metadata.1.0.0\lib\Escc.Web.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="EsccWebTeam.Egms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=06fad7304560ae6f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>S:\_Reference DLLs\EsccWebTeam pre-NuGet\EsccWebTeam.Egms - release\EsccWebTeam.Egms.dll</HintPath>
     </Reference>
     <Reference Include="EsccWebTeam.Exceptions.Publishers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=06fad7304560ae6f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -332,10 +343,6 @@
     <ProjectReference Include="..\Escc.NavigationControls\EsccWebTeam.NavigationControls.csproj">
       <Project>{0323f668-1723-44a1-8c94-f91dc59ef315}</Project>
       <Name>EsccWebTeam.NavigationControls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Escc.Egms\EsccWebTeam.Egms.csproj">
-      <Project>{78083dcb-b12f-4950-86c5-3a844d8604f3}</Project>
-      <Name>EsccWebTeam.Egms</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
