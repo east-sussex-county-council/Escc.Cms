@@ -91,6 +91,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Escc.EastSussexGovUK\packages\Escc.AddressAndPersonalDetails.1.0.0\lib\Escc.AddressAndPersonalDetails.dll</HintPath>
     </Reference>
+    <Reference Include="Escc.Html, Version=1.0.0.0, Culture=neutral, PublicKeyToken=06fad7304560ae6f, processorArchitecture=MSIL">
+      <HintPath>..\Escc.EastSussexGovUK\packages\Escc.Html.1.0.0\lib\Escc.Html.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Escc.TextStatistics">
       <HintPath>packages\Escc.TextStatistics.1.0.2\lib\Escc.TextStatistics.dll</HintPath>
       <Private>True</Private>
@@ -331,10 +335,6 @@
     <ProjectReference Include="..\Escc.Data.ActiveDirectory\EsccWebTeam.Data.ActiveDirectory.csproj">
       <Project>{5F1BBB42-C1C6-4110-A3E4-720420A3C27D}</Project>
       <Name>EsccWebTeam.Data.ActiveDirectory</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Escc.Data.Xml\EsccWebTeam.Data.Xml.csproj">
-      <Project>{86b2725c-9c37-44a4-93c7-f5122afa0809}</Project>
-      <Name>EsccWebTeam.Data.Xml</Name>
     </ProjectReference>
     <ProjectReference Include="..\Escc.HouseStyle\EsccWebTeam.HouseStyle.csproj">
       <Project>{1c429378-dbf2-4af7-88ac-c059aa163682}</Project>

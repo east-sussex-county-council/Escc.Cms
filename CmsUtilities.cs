@@ -21,7 +21,6 @@ using eastsussexgovuk.webservices.TextXhtml.HouseStyle;
 using Escc.TextStatistics;
 using EsccWebTeam.Cms.Placeholders;
 using EsccWebTeam.Data.Web;
-using EsccWebTeam.Data.Xml;
 using EsccWebTeam.HouseStyle;
 using EsccWebTeam.NavigationControls;
 using Microsoft.ApplicationBlocks.Data;
@@ -29,6 +28,7 @@ using Microsoft.ContentManagement.Publishing;
 using Microsoft.ContentManagement.Publishing.Events;
 using Microsoft.ContentManagement.Publishing.Extensions.Placeholders;
 using Microsoft.ContentManagement.WebControls;
+using Escc.Html;
 
 namespace EsccWebTeam.Cms
 {
@@ -1439,7 +1439,8 @@ namespace EsccWebTeam.Cms
             // Parse attributes into a collection
             Dictionary<string, string> singleValueAttributes = new Dictionary<string, string>();
             Dictionary<string, List<string>> multiValueAttributes = new Dictionary<string, List<string>>();
-            XmlFragmentParser.ParseAttributes(match.Groups["Attributes"].ToString(), singleValueAttributes, multiValueAttributes, XmlFragmentParser.XhtmlMultiValuedAttributes, new string[] { " " }, null);
+            var parser = new HtmlParser();
+            parser.ParseAttributes(match.Groups["Attributes"].ToString(), singleValueAttributes, multiValueAttributes, parser.HtmlMultiValuedAttributes, new string[] { " " }, null);
 
             // Throw away all attributes except class, and for class throw away anything not in the whitelist
             singleValueAttributes.Clear();
@@ -1466,7 +1467,7 @@ namespace EsccWebTeam.Cms
                 }
             }
             multiValueAttributes["class"] = filteredClasses;
-            return XmlFragmentParser.RebuildTag(match.Groups["Tag"].Value, singleValueAttributes, multiValueAttributes);
+            return parser.RebuildTag(match.Groups["Tag"].Value, singleValueAttributes, multiValueAttributes);
         }
 
         /// <summary>
